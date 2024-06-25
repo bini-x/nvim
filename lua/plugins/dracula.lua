@@ -2,7 +2,6 @@ return {
 	{
 		"maxmx03/dracula.nvim",
 		lazy = false,
-		priority = 1000,
 		config = function()
 			-- ---@type dracula
 			local dracula = require("dracula")
@@ -46,8 +45,6 @@ return {
 					["mini.cursorword"] = true,
 				},
 			})
-			vim.cmd.colorscheme("dracula")
-			vim.cmd.colorscheme("dracula-soft")
 		end,
 	},
 	{
