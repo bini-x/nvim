@@ -19,7 +19,7 @@ return {
 					shade = "dark",
 					percentage = 0.15,
 				},
-				no_italic = true, -- Force no italic
+				no_italic = false, -- Force no italic
 				no_bold = false, -- Force no bold
 				styles = {
 					comments = { "italic" },
@@ -46,34 +46,6 @@ return {
 					mini = false,
 					treesitter = true,
 					-- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
-				},
-				highlight_overrides = {
-					all = function(colors)
-						return {
-							NvimTreeNormal = { fg = colors.none },
-							CmpBorder = { fg = "#3e4145" },
-						}
-					end,
-					latte = function(latte)
-						return {
-							Normal = { fg = latte.base },
-						}
-					end,
-					frappe = function(frappe)
-						return {
-							["@comment"] = { fg = frappe.surface2, style = { "italic" } },
-						}
-					end,
-					macchiato = function(macchiato)
-						return {
-							LineNr = { fg = macchiato.overlay1 },
-						}
-					end,
-					mocha = function(mocha)
-						return {
-							Comment = {},
-						}
-					end,
 				},
 			})
 			-- setup must be called before loading
