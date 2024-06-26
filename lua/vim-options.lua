@@ -6,6 +6,7 @@ vim.opt.clipboard = "unnamedplus"
 vim.g.mapleader = " "
 vim.opt.nu = true
 vim.opt.relativenumber = true
+vim.keymap.set("n", "<leader>nd", "<cmd>NoiceDismiss<CR>")
 
 vim.keymap.set("n", "<c-k>", ":wincmd k<CR>")
 vim.keymap.set("n", "<c-j>", ":wincmd j<CR>")
