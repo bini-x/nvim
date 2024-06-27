@@ -1,3 +1,4 @@
+vim.cmd("set cmdheight=1")
 vim.cmd("set expandtab")
 vim.cmd("set tabstop=2")
 vim.cmd("set softtabstop=2")
@@ -6,7 +7,6 @@ vim.opt.clipboard = "unnamedplus"
 vim.g.mapleader = " "
 vim.opt.nu = true
 vim.opt.relativenumber = true
-vim.keymap.set("n", "<leader>nd", "<cmd>NoiceDismiss<CR>")
 
 vim.keymap.set("n", "<c-k>", ":wincmd k<CR>")
 vim.keymap.set("n", "<c-j>", ":wincmd j<CR>")
