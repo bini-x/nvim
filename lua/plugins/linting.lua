@@ -12,7 +12,7 @@ return {
 			javascriptreact = { "eslint_d" },
 			typescriptreact = { "eslint_d" },
 			svelte = { "eslint_d" },
-			python = { "pylint" },
+			python = { "ruff" },
 		}
 		eslint_d.args = {
 			"--no-warn-ignored", -- <-- this is the key argument
