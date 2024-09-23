@@ -33,7 +33,7 @@ return {
       lspconfig.gopls.setup({
         capabilities = capabilities,
       })
-      lspconfig.ruff.setup({
+      lspconfig.jedi_language_server.setup({
         capabilities = capabilities,
       })
 
