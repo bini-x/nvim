@@ -7,8 +7,8 @@ vim.opt.clipboard = "unnamedplus"
 vim.g.mapleader = " "
 vim.opt.nu = true
 vim.opt.relativenumber = true
-
 vim.opt.termguicolors = true
+vim.opt.fillchars = { eob = " " }
 
 
 vim.keymap.set("n", "<c-k>", ":wincmd k<CR>")
