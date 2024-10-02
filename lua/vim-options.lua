@@ -9,6 +9,7 @@ vim.opt.nu = true
 vim.opt.relativenumber = true
 vim.opt.termguicolors = true
 vim.opt.fillchars = { eob = " " }
+vim.highlight.priorities.semantic_tokens = 94
 
 vim.keymap.set("n", "<leader>f", ":%s/")
 vim.keymap.set("n", "<c-k>", ":wincmd k<CR>")

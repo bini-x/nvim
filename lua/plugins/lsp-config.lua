@@ -9,7 +9,7 @@ return {
     "williamboman/mason-lspconfig.nvim",
     config = function()
       require("mason-lspconfig").setup({
-        ensure_installed = { "lua_ls", "tsserver", "html", "emmet_ls", "ruff" },
+        ensure_installed = { "lua_ls", "tsserver", "html", "emmet_ls", "ruff", "gopls" },
       })
     end,
   },
@@ -32,8 +32,19 @@ return {
       })
       lspconfig.gopls.setup({
         capabilities = capabilities,
+        filetypes = { "go", "gomod", "gowork", "gotmpl" },
+        settings = {
+          gopls = {
+            completeUnimported = true,
+            usePlaceholders = true,
+            analyses = {
+              unusedparams = true
+            }
+          }
+        }
       })
       lspconfig.jedi_language_server.setup({
+        on_attach = on_attach,
         capabilities = capabilities,
       })
 
