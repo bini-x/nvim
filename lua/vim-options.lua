@@ -11,6 +11,8 @@ vim.opt.relativenumber = true
 vim.opt.termguicolors = true
 vim.opt.fillchars = { eob = " " }
 vim.highlight.priorities.semantic_tokens = 94
+vim.opt.guicursor = "n-v-i-c:block-Cursor"
+vim.opt.guicursor = "n:block-Cursor"
 
 vim.keymap.set("n", "<leader>f", ":%s/")
 vim.keymap.set("n", "<c-k>", ":wincmd k<CR>")
