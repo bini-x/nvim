@@ -7,8 +7,8 @@ vim.opt.clipboard = "unnamedplus"
 vim.g.mapleader = " "
 vim.g.copilot_enabled = 0
 vim.opt.nu = true
-vim.opt.relativenumber = true
 vim.opt.termguicolors = true
+vim.opt.relativenumber = true
 vim.opt.fillchars = { eob = " " }
 vim.highlight.priorities.semantic_tokens = 94
 vim.opt.guicursor = "n-v-i-c:block-Cursor"
