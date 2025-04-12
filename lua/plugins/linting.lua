@@ -4,25 +4,25 @@ return {
 	config = function()
 		local lint = require("lint")
 		local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
-		local eslint_d = lint.linters.eslint_d
-
-		lint.linters_by_ft = {
-			javascript = { "eslint_d" },
-			typescript = { "eslint_d" },
-			javascriptreact = { "eslint_d" },
-			typescriptreact = { "eslint_d" },
-			svelte = { "eslint_d" },
-		}
-		eslint_d.args = {
-			"--no-warn-ignored", -- <-- this is the key argument
-			"--format",
-			"json",
-			"--stdin",
-			"--stdin-filename",
-			function()
-				return vim.api.nvim_buf_get_name(0)
-			end,
-		}
+		-- local eslint_d = lint.linters.eslint_d
+		--
+		-- lint.linters_by_ft = {
+		-- 	javascript = { "eslint_d" },
+		-- 	typescript = { "eslint" },
+		-- 	javascriptreact = { "eslint" },
+		-- 	typescriptreact = { "eslint" },
+		-- 	svelte = { "eslint" },
+		-- }
+		-- eslint_d.args = {
+		-- 	"--no-warn-ignored", -- <-- this is the key argument
+		-- 	"--format",
+		-- 	"json",
+		-- 	"--stdin",
+		-- 	"--stdin-filename",
+		-- 	function()
+		-- 		return vim.api.nvim_buf_get_name(0)
+		-- 	end,
+		-- }
 
 		vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
 			group = lint_augroup,

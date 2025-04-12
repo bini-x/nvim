@@ -21,7 +21,7 @@ return {
 				lua = { "stylua" },
 				python = { "black" },
 				cpp = { "clang-format" },
-				cs = { "csharpier" },
+				java = { "google-java-format" },
 			},
 			format_on_save = {
 				lsp_fallback = true,

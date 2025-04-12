@@ -9,7 +9,16 @@ return {
 		"williamboman/mason-lspconfig.nvim",
 		config = function()
 			require("mason-lspconfig").setup({
-				ensure_installed = { "lua_ls", "ts_ls", "html", "emmet_ls", "gopls", "omnisharp" },
+				ensure_installed = {
+					"lua_ls",
+					"ts_ls",
+					"html",
+					"emmet_ls",
+					"gopls",
+					"jdtls",
+					"eslint",
+					"omnisharp",
+				},
 			})
 		end,
 	},
@@ -21,12 +30,26 @@ return {
 			lspconfig.lua_ls.setup({
 				capabilities = capabilities,
 			})
+			lspconfig.ts_ls.setup({
+				capabilities = capabilities,
+			})
 			lspconfig.omnisharp.setup({
-				on_attach = on_attach,
 				capabilities = capabilities,
 				cmd = { "dotnet", "/home/bini/.local/share/nvim/mason/packages/omnisharp/libexec/OmniSharp.dll" },
+				filetypes = { "cs" },
 			})
-			lspconfig.ts_ls.setup({
+			lspconfig.eslint.setup({
+				settings = {
+					packageManager = "npm",
+				},
+				on_attach = function(client, bufnr)
+					vim.api.nvim_create_autocmd("BufWritePre", {
+						buffer = bufnr,
+						command = "EslintFixAll",
+					})
+				end,
+			})
+			lspconfig.jdtls.setup({
 				capabilities = capabilities,
 			})
 			lspconfig.html.setup({
@@ -49,7 +72,6 @@ return {
 				},
 			})
 			lspconfig.jedi_language_server.setup({
-				on_attach = on_attach,
 				capabilities = capabilities,
 			})
 

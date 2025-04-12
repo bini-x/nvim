@@ -10,7 +10,7 @@ vim.opt.nu = true
 vim.opt.termguicolors = true
 vim.opt.relativenumber = true
 vim.opt.fillchars = { eob = " " }
-vim.highlight.priorities.semantic_tokens = 94
+vim.hl.priorities.semantic_tokens = 94
 vim.opt.guicursor = "n-v-i-c:block-Cursor"
 vim.opt.guicursor = "n:block-Cursor"
 vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
