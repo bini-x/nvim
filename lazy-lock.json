@@ -1,11 +1,11 @@
 {
-  "CopilotChat.nvim": { "branch": "main", "commit": "a89f5f1162b04a0962e5f4c3cdf248a81e7e53cb" },
+  "CopilotChat.nvim": { "branch": "main", "commit": "75653259442a8eb895abfc70d7064e07aeb7134c" },
   "LuaSnip": { "branch": "master", "commit": "c9b9a22904c97d0eb69ccb9bab76037838326817" },
   "alpha-nvim": { "branch": "main", "commit": "de72250e054e5e691b9736ee30db72c65d560771" },
   "cmp-nvim-lsp": { "branch": "main", "commit": "a8912b88ce488f411177fc8aed358b04dc246d7b" },
   "cmp_luasnip": { "branch": "master", "commit": "98d9cb5c2c38532bd9bdb481067b20fea8f32e90" },
   "conform.nvim": { "branch": "master", "commit": "eebc724d12c5579d733d1f801386e0ceb909d001" },
-  "copilot.vim": { "branch": "release", "commit": "a9228e015528c9307890c48083c925eb98a64a79" },
+  "copilot.vim": { "branch": "release", "commit": "7167958954532a0a1b83f2db2f591b43aebff44c" },
   "friendly-snippets": { "branch": "main", "commit": "efff286dd74c22f731cdec26a70b46e5b203c619" },
   "github-theme": { "branch": "main", "commit": "c106c9472154d6b2c74b74565616b877ae8ed31d" },
   "go.nvim": { "branch": "master", "commit": "ef38820e413e10f47d83688dee41785bd885fb2a" },
