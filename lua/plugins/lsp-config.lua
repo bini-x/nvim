@@ -10,7 +10,7 @@ return {
     config = function()
       require("mason-lspconfig").setup({
         ensure_installed = {
-          "lua_ls",
+          -- "lua_ls",
           "ts_ls", -- Using ts_ls
           "html",
           "emmet_ls",
@@ -40,21 +40,21 @@ return {
 
       -- Use the new vim.lsp.start API for each server
       -- Lua
-      vim.lsp.start({
-        name = "lua_ls",
-        cmd = { "lua-language-server" },
-        capabilities = capabilities,
-        on_attach = on_attach,
-        settings = {
-          Lua = {
-            runtime = { version = 'LuaJIT' },
-            diagnostics = { globals = { 'vim' } },
-            workspace = { library = vim.api.nvim_get_runtime_file("", true) },
-            telemetry = { enable = false },
-          }
-        }
-      })
-
+      -- vim.lsp.start({
+      --   name = "lua_ls",
+      --   cmd = { "lua-language-server" },
+      --   capabilities = capabilities,
+      --   on_attach = on_attach,
+      --   settings = {
+      --     Lua = {
+      --       runtime = { version = 'LuaJIT' },
+      --       diagnostics = { globals = { 'vim' } },
+      --       workspace = { library = vim.api.nvim_get_runtime_file("", true) },
+      --       telemetry = { enable = false },
+      --     }
+      --   }
+      -- })
+      --
       -- TypeScript/JavaScript - USING TS_LS
       vim.lsp.start({
         name = "ts_ls",
