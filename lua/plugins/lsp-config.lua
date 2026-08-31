@@ -15,7 +15,6 @@ return {
           "html",
           "emmet_ls",
           "gopls",
-          "jdtls",
           "eslint",
           "clangd",
         },
@@ -88,14 +87,6 @@ return {
         capabilities = capabilities,
         on_attach = on_attach,
         filetypes = { "go", "gomod", "gowork", "gotmpl" },
-      })
-
-      -- Java
-      vim.lsp.start({
-        name = "jdtls",
-        cmd = { "jdtls" },
-        capabilities = capabilities,
-        on_attach = on_attach,
       })
 
       -- ESLint
