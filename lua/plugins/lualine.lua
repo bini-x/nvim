@@ -1,74 +1,167 @@
 return {
   "nvim-lualine/lualine.nvim",
   dependencies = { "nvim-tree/nvim-web-devicons" },
+
   config = function()
     local colors = {
-      blue = "#539bf5",
-      cyan = "#76E3EA",
-      black = "#22272e",
-      white = "adbac7",
-      red = "#A05350",
-      violet = "#DCBDFB",
-      grey = "#303030",
-      green = "#8DDB8C",
+      bg = "#141415",
+      bg_alt = "#1c1c1e",
+      bg_dark = "#101012",
+
+      fg = "#cdcdcd",
+      muted = "#7e7e7e",
+      grey = "#505050",
+
+      blue = "#7e9cd8",
+      green = "#8fb573",
+      red = "#d2788a",
+      purple = "#aaa0d8",
+      yellow = "#d0a215",
     }
 
-    local bubbles_theme = {
+    local vague_theme = {
       normal = {
-        a = { fg = colors.black, bg = colors.blue },
-        b = { fg = colors.white, bg = colors.grey },
-        c = { fg = colors.white, bg = colors.black },
+        a = { fg = colors.bg_dark, bg = colors.blue, gui = "bold" },
+        b = { fg = colors.muted, bg = colors.bg_alt },
+        c = { fg = colors.muted, bg = colors.bg },
       },
 
-      insert = { a = { fg = colors.black, bg = colors.green } },
-      visual = { a = { fg = colors.black, bg = colors.cyan } },
-      replace = { a = { fg = colors.black, bg = colors.red } },
-      command = { a = { fg = colors.black, bg = colors.violet } },
+      insert = {
+        a = { fg = colors.bg_dark, bg = colors.green, gui = "bold" },
+        b = { fg = colors.muted, bg = colors.bg_alt },
+        c = { fg = colors.muted, bg = colors.bg },
+      },
+
+      visual = {
+        a = { fg = colors.bg_dark, bg = colors.purple, gui = "bold" },
+        b = { fg = colors.muted, bg = colors.bg_alt },
+        c = { fg = colors.muted, bg = colors.bg },
+      },
+
+      replace = {
+        a = { fg = colors.bg_dark, bg = colors.red, gui = "bold" },
+        b = { fg = colors.muted, bg = colors.bg_alt },
+        c = { fg = colors.muted, bg = colors.bg },
+      },
+
+      command = {
+        a = { fg = colors.bg_dark, bg = colors.yellow, gui = "bold" },
+        b = { fg = colors.muted, bg = colors.bg_alt },
+        c = { fg = colors.muted, bg = colors.bg },
+      },
 
       inactive = {
-        a = { fg = colors.white, bg = colors.black },
-        b = { fg = colors.white, bg = colors.black },
-        c = { fg = colors.white, bg = colors.black },
+        a = { fg = colors.muted, bg = colors.bg },
+        b = { fg = colors.muted, bg = colors.bg },
+        c = { fg = colors.muted, bg = colors.bg },
       },
     }
 
+    -- Make the statusline blend into the Vague background.
     vim.api.nvim_create_autocmd({ "UiEnter", "ColorScheme" }, {
       callback = function()
         local normal = vim.api.nvim_get_hl(0, { name = "Normal" })
         local statusline = vim.api.nvim_get_hl(0, { name = "StatusLine" })
-        -- Create a new table for the updated highlight group
-        local updated_statusline = vim.tbl_extend("force", statusline, { bg = normal.bg })
-        vim.api.nvim_set_hl(0, "StatusLine", updated_statusline)
+
+        vim.api.nvim_set_hl(
+          0,
+          "StatusLine",
+          vim.tbl_extend("force", statusline, {
+            bg = normal.bg,
+          })
+        )
       end,
     })
 
     require("lualine").setup({
       options = {
-        theme = bubbles_theme,
+        theme = vague_theme,
+
         component_separators = "",
-        section_separators = { left = "", right = "" },
+        section_separators = {
+          left = "",
+          right = "",
+        },
+
+        globalstatus = true,
+        disabled_filetypes = {
+          statusline = {},
+          winbar = {},
+        },
       },
+
       sections = {
-        lualine_a = { { "mode", separator = { left = "" }, right_padding = 2 } },
-        lualine_b = { "filename", "branch", "diff" },
+        lualine_a = {
+          {
+            "mode",
+            separator = { left = "" },
+            right_padding = 2,
+          },
+        },
+
+        lualine_b = {
+          {
+            "filename",
+            color = { fg = colors.fg },
+          },
+          {
+            "branch",
+            color = { fg = colors.muted },
+          },
+          {
+            "diff",
+            color = { fg = colors.muted },
+          },
+        },
+
         lualine_c = {
           "%=",
-          --[[ add your center components here in place of this comment ]]
         },
+
         lualine_x = {},
-        lualine_y = { "filetype", "progress" },
+
+        lualine_y = {
+          {
+            "filetype",
+            color = { fg = colors.muted },
+          },
+          {
+            "progress",
+            color = { fg = colors.muted },
+          },
+        },
+
         lualine_z = {
-          { "location", separator = { right = "" }, left_padding = 0 },
+          {
+            "location",
+            separator = { right = "" },
+            left_padding = 0,
+            color = { fg = colors.muted },
+          },
         },
       },
+
       inactive_sections = {
-        lualine_a = { "filename" },
-        lualine_b = { "" },
+        lualine_a = {
+          {
+            "filename",
+            color = { fg = colors.muted },
+          },
+        },
+
+        lualine_b = {},
         lualine_c = {},
         lualine_x = {},
         lualine_y = {},
-        lualine_z = { "location" },
+
+        lualine_z = {
+          {
+            "location",
+            color = { fg = colors.muted },
+          },
+        },
       },
+
       tabline = {},
       extensions = {},
     })
